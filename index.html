@@ -17,6 +17,7 @@
       --text:      #E8EDF5;
       --muted:     #7A8BA0;
       --tag-bg:    #0D2030;
+      --success:   #10B981;
     }
 
     html { scroll-behavior: smooth; }
@@ -245,6 +246,74 @@
       font-size: 0.84rem; color: var(--muted); line-height: 1.6;
     }
 
+    /* ── CERTIFICATIONS ──────────────────────────────── */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.6rem;
+    }
+    .cert-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.8rem;
+      display: flex; flex-direction: column;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .cert-card:hover {
+      border-color: var(--accent-dim);
+      transform: translateY(-3px);
+    }
+    .cert-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    .cert-status {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.35rem 0.7rem;
+      border-radius: 3px;
+      background: var(--tag-bg);
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+    }
+    .cert-status.completed {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: var(--success);
+      color: var(--success);
+    }
+    .cert-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.05rem; font-weight: 600; margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+    .cert-card p {
+      font-size: 0.87rem; color: var(--muted); line-height: 1.65;
+      margin-bottom: 1.2rem;
+      flex: 1;
+    }
+    .cert-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .cert-tag {
+      padding: 0.3rem 0.75rem;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.75rem; color: var(--muted);
+    }
+    .cert-action {
+      display: inline-flex;
+      padding: 0.65rem 1.4rem;
+      background: var(--accent); color: var(--bg);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600; font-size: 0.85rem;
+      text-decoration: none; border-radius: 4px;
+      transition: opacity 0.2s, transform 0.2s;
+      width: fit-content;
+    }
+    .cert-action:hover { opacity: 0.88; transform: translateY(-1px); }
+
     /* ── ACHIEVEMENTS ────────────────────────────────── */
     .ach-list { display: flex; flex-direction: column; gap: 1.2rem; }
     .ach-item {
@@ -389,7 +458,7 @@
     /* ── REDUCED MOTION ──────────────────────────────── */
     @media (prefers-reduced-motion: reduce) {
       .hero::after { animation: none; }
-      .skill-card, .project-card { transition: none; }
+      .skill-card, .project-card, .cert-card { transition: none; }
     }
   </style>
 </head>
@@ -397,10 +466,11 @@
 
 <!-- ── NAV ──────────────────────────────────────────── -->
 <nav>
-  <div class="nav-logo">MD. RAKIB // CyberSec</div>
+  <div class="nav-logo">KAZI MD. ADIB // CyberSec</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
     <li><a href="#achievements">Achievements</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#goals">Goals</a></li>
@@ -413,7 +483,7 @@
   <div class="hero-eyebrow">Cybersecurity Student · Bangladesh</div>
   <h1>Building skills.<br /><span>Defending systems.</span></h1>
   <p class="hero-sub">
-    An 18-year-old driven by curiosity and discipline — developing a technical foundation in cybersecurity, programming, and information systems to make an impact in digital defense.
+    A cybersecurity student from Bangladesh focused on developing skills in digital defense, security awareness, Python programming, and information systems. Currently pursuing industry-recognized cybersecurity training while preparing for higher education in Computer Science and Cybersecurity.
   </p>
   <div class="hero-actions">
     <a href="#contact" class="btn-primary">Get in Touch →</a>
@@ -421,16 +491,16 @@
   </div>
   <div class="hero-stat-row">
     <div class="hero-stat">
-      <span class="num">4</span>
-      <span class="label">Books Typed in Full</span>
+      <span class="num">2</span>
+      <span class="label">Cybersecurity Certificates</span>
     </div>
     <div class="hero-stat">
       <span class="num">2+</span>
       <span class="label">Programming Languages</span>
     </div>
     <div class="hero-stat">
-      <span class="num">100%</span>
-      <span class="label">Self-Motivated</span>
+      <span class="num">1</span>
+      <span class="label">Professional Certificate In Progress</span>
     </div>
   </div>
 </section>
@@ -442,13 +512,13 @@
   <div class="about-grid">
     <div class="about-body">
       <p>
-        I'm an 18-year-old student based in <strong>Bangladesh</strong>, preparing for higher studies with a clear focus: specializing in cybersecurity. From an early age, I've been drawn to understanding how systems work — and more importantly, how they can fail.
+        I'm a student from Bangladesh with a clear focus: specializing in cybersecurity. From an early age, I've been drawn to understanding how systems work, where vulnerabilities exist, and how to build defenses against emerging threats.
       </p>
       <p>
-        What drives me isn't just technical interest — it's a genuine belief that <strong>digital safety is a human right</strong>. The more our lives move online, the more critical it becomes to have people who understand the threats and know how to counter them. That's the professional I'm working to become.
+        What drives me isn't just technical interest — it's a genuine belief that <strong>digital safety is a human right</strong>. The more our lives move online, the more critical it becomes to develop professionals who can protect people, organizations, and critical infrastructure from cyber threats.
       </p>
       <p>
-        I've built strong documentation, productivity, and programming habits through consistent self-study. I approach every skill methodically: learn it properly, practice it until it sticks, and apply it with precision. <strong>Discipline isn't optional — it's the foundation everything else builds on.</strong>
+        I've built strong documentation, productivity, and programming habits through consistent self-study and formal training. I approach every skill methodically: learn it properly, practice it rigorously, and integrate it into my foundation for future growth.
       </p>
     </div>
     <div class="about-cards">
@@ -463,7 +533,7 @@
         <div class="icon">🎯</div>
         <div>
           <div class="ic-title">Current Focus</div>
-          <div class="ic-body">Cybersecurity fundamentals, Python scripting, and preparing for university-level studies in IT/CS</div>
+          <div class="ic-body">Google Cybersecurity Professional Certificate (Course 3), cybersecurity fundamentals, Python scripting, and university preparation.</div>
         </div>
       </div>
       <div class="info-card">
@@ -498,9 +568,9 @@
         <span class="tag">Threat Awareness</span>
         <span class="tag">Online Safety</span>
         <span class="tag">Attack Vectors</span>
-        <span class="tag">Phishing Recognition</span>
+        <span class="tag">Risk Assessment</span>
       </div>
-      <p class="desc">Solid foundational understanding of how networks operate, how threats emerge, and how to recognize and respond to common cyberattacks.</p>
+      <p class="desc">Solid foundational understanding of how networks operate, how threats emerge, and how to recognize and respond to common cyberattacks. Grounded in formal training through IBM SkillsBuild.</p>
     </div>
 
     <div class="skill-card">
@@ -539,7 +609,7 @@
         <span class="tag">Organization</span>
         <span class="tag">Consistency</span>
       </div>
-      <p class="desc">Exceptional ability to produce accurate, well-structured written content — demonstrated through high-volume typing projects requiring sustained focus.</p>
+      <p class="desc">Strong ability to produce accurate, well-structured written content. Demonstrated through large-scale documentation projects requiring sustained focus and precision.</p>
     </div>
 
     <div class="skill-card">
@@ -558,6 +628,62 @@
   </div>
 </section>
 
+<!-- ── CERTIFICATIONS ──────────────────────────────────── -->
+<section id="certifications">
+  <div class="section-prompt">Training & Credentials</div>
+  <h2>Certifications & Training</h2>
+  <div class="cert-grid">
+
+    <div class="cert-card">
+      <div class="cert-header">
+        <h3>IBM SkillsBuild – Cybersecurity Fundamentals</h3>
+        <span class="cert-status completed">Completed</span>
+      </div>
+      <p>
+        Completed foundational cybersecurity training covering threat awareness, security concepts, risk management, and digital defense principles.
+      </p>
+      <div class="cert-tags">
+        <span class="cert-tag">IBM</span>
+        <span class="cert-tag">Cybersecurity</span>
+        <span class="cert-tag">Security Fundamentals</span>
+      </div>
+      <a href="certificates/cybersecurity-fundamentals.pdf" class="cert-action" target="_blank">View Certificate</a>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-header">
+        <h3>IBM SkillsBuild – Getting Started with Cybersecurity</h3>
+        <span class="cert-status completed">Completed</span>
+      </div>
+      <p>
+        Built a foundation in cybersecurity concepts, online safety, digital threats, and responsible security practices.
+      </p>
+      <div class="cert-tags">
+        <span class="cert-tag">IBM</span>
+        <span class="cert-tag">Cybersecurity</span>
+        <span class="cert-tag">Digital Safety</span>
+      </div>
+      <a href="certificates/getting-started-cybersecurity.pdf" class="cert-action" target="_blank">View Certificate</a>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-header">
+        <h3>Google Cybersecurity Professional Certificate</h3>
+        <span class="cert-status">In Progress</span>
+      </div>
+      <p>
+        Currently progressing through Course 3 of Google's professional cybersecurity program while developing practical security and IT skills.
+      </p>
+      <div class="cert-tags">
+        <span class="cert-tag">Google</span>
+        <span class="cert-tag">Cybersecurity</span>
+        <span class="cert-tag">Course 3</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ── ACHIEVEMENTS ───────────────────────────────────── -->
 <section id="achievements">
   <div class="section-prompt">What I've Done</div>
@@ -567,9 +693,9 @@
     <div class="ach-item">
       <div class="ach-icon">📚</div>
       <div>
-        <div class="ach-title">Typed 4 Complete Books</div>
+        <div class="ach-title">Typing & Documentation Experience</div>
         <div class="ach-desc">
-          Manually typed four full books from start to finish — a voluntary undertaking that sharpened my typing speed, accuracy, and endurance. This project demanded weeks of sustained focus and zero shortcuts, and it reflects a core trait I bring to every task: I finish what I start. It also deepened my command of language, formatting, and structured documentation.
+          Completed several large typing and documentation projects, including the transcription of multiple book-length texts. This experience strengthened typing speed, formatting skills, attention to detail, and consistency when working with extensive written material.
         </div>
       </div>
     </div>
@@ -577,9 +703,9 @@
     <div class="ach-item">
       <div class="ach-icon">🔐</div>
       <div>
-        <div class="ach-title">Independent Cybersecurity Self-Study</div>
+        <div class="ach-title">Formal Cybersecurity Training</div>
         <div class="ach-desc">
-          Completed structured self-directed learning in cybersecurity concepts without formal enrollment — covering network security principles, threat classification, and safe digital practices. Demonstrates the initiative to seek knowledge proactively and learn from quality resources without institutional guidance.
+          Completed two IBM SkillsBuild cybersecurity courses covering foundational concepts, threat awareness, security principles, and digital safety practices. Currently advancing through Google's professional cybersecurity certification program.
         </div>
       </div>
     </div>
@@ -589,7 +715,7 @@
       <div>
         <div class="ach-title">Dual-Language Programming Foundations</div>
         <div class="ach-desc">
-          Independently acquired working knowledge of both Python and C++ — two distinct programming paradigms (scripted/dynamic vs. compiled/static). Learning two languages simultaneously strengthens understanding of core computer science concepts and demonstrates adaptability to different technical environments.
+          Independently acquired working knowledge of both Python and C++ — two distinct programming paradigms (scripted/dynamic vs. compiled/static). Learning multiple languages strengthens problem-solving versatility and systems understanding.
         </div>
       </div>
     </div>
@@ -607,7 +733,7 @@
       <span class="proj-tag">Python · Security</span>
       <h3>Password Strength Analyzer</h3>
       <p>
-        Built a Python script that evaluates the strength of user-provided passwords against common security criteria — length, use of special characters, uppercase/lowercase mix, and presence in common password lists. Outputs a scored report with improvement suggestions.
+        Built a Python script that evaluates the strength of user-provided passwords against security criteria — length, special characters, uppercase/lowercase mix, and common weakness patterns.
       </p>
       <div class="proj-stack">
         <span>Python</span><span>String Manipulation</span><span>Regex</span><span>CLI</span>
@@ -616,9 +742,9 @@
 
     <div class="project-card">
       <span class="proj-tag">Documentation</span>
-      <h3>4-Book Typing Project</h3>
+      <h3>Large-Scale Documentation Projects</h3>
       <p>
-        Personally typed four full books totaling tens of thousands of words, maintaining consistent formatting, structure, and accuracy throughout. Developed speed, endurance, and a rigorous approach to quality control — skills that translate directly into technical documentation and report writing.
+        Completed multiple book-length typing and documentation projects, maintaining consistent formatting, structure, and accuracy throughout. Developed speed, endurance, and a rigorous approach to quality control.
       </p>
       <div class="proj-stack">
         <span>Microsoft Word</span><span>Formatting</span><span>Proofreading</span>
@@ -627,9 +753,9 @@
 
     <div class="project-card">
       <span class="proj-tag">Research · Awareness</span>
-      <h3>Personal Cybersecurity Notes Repository</h3>
+      <h3>Cybersecurity Knowledge Repository</h3>
       <p>
-        Compiled a structured, self-maintained reference document covering key cybersecurity topics: network fundamentals, common attack types, social engineering tactics, and safety practices. Used as a personal study system and ongoing knowledge base.
+        Compiled a structured, self-maintained reference document covering key cybersecurity topics: network fundamentals, common attack types, social engineering tactics, and best practices for digital safety.
       </p>
       <div class="proj-stack">
         <span>Microsoft Word</span><span>Research</span><span>Knowledge Management</span>
@@ -640,7 +766,7 @@
       <span class="proj-tag">C++ · Logic</span>
       <h3>Number System Converter</h3>
       <p>
-        Developed a C++ program to convert between binary, decimal, and hexadecimal number systems — a foundational exercise in understanding how computers represent data. Reinforced low-level thinking essential for systems and security work.
+        Developed a C++ program to convert between binary, decimal, and hexadecimal number systems — a foundational exercise in understanding how computers represent data and process information.
       </p>
       <div class="proj-stack">
         <span>C++</span><span>Bitwise Logic</span><span>Number Theory</span>
@@ -657,13 +783,13 @@
   <div class="goals-wrap">
     <div class="goals-text">
       <p>
-        Cybersecurity isn't just a career path for me — it's the intersection of everything I find interesting: systems thinking, problem-solving under pressure, and protecting people in an increasingly digital world. <strong>The threat landscape evolves every day, and I intend to evolve with it.</strong>
+        Cybersecurity isn't just a career path for me — it's the intersection of everything I find interesting: systems thinking, problem-solving under pressure, and protecting people in an increasingly digital world.
       </p>
       <p>
-        My immediate priority is gaining admission to a reputable university program in Computer Science or Information Technology, where I can build formally on the foundations I've already established. From there, I aim to specialize in areas like <strong>ethical hacking, network defense, and digital forensics</strong>.
+        My immediate priority is gaining admission to a reputable university program in Computer Science or Information Technology, where I can build formally on the foundations I've already established through self-study and professional training.
       </p>
       <p>
-        Longer term, I want to contribute to cybersecurity in a meaningful way — whether that's protecting organizations from threats, researching new vulnerabilities, or helping build safer digital infrastructure for my country and beyond. <strong>Bangladesh's digital transformation is real and rapid — and it needs people who can secure it.</strong>
+        Longer term, I want to contribute to cybersecurity in a meaningful way — whether that's protecting organizations from threats, researching new vulnerabilities, or helping build safer digital infrastructure for emerging economies.
       </p>
     </div>
     <div class="roadmap">
@@ -671,21 +797,21 @@
         <div class="rm-dot">01</div>
         <div class="rm-content">
           <div class="rm-label">Higher Education</div>
-          <div class="rm-desc">Pursue a CS/IT degree with a cybersecurity track at a leading institution</div>
+          <div class="rm-desc">Pursue a CS/IT degree with a cybersecurity specialization at a leading institution</div>
         </div>
       </div>
       <div class="roadmap-item">
         <div class="rm-dot">02</div>
         <div class="rm-content">
           <div class="rm-label">Industry Certifications</div>
-          <div class="rm-desc">Target CompTIA Security+, CEH, and eventually OSCP to validate technical skills</div>
+          <div class="rm-desc">Complete Google Cybersecurity Certificate and pursue CompTIA Security+, CEH, and OSCP</div>
         </div>
       </div>
       <div class="roadmap-item">
         <div class="rm-dot">03</div>
         <div class="rm-content">
           <div class="rm-label">Hands-On Practice</div>
-          <div class="rm-desc">Compete in CTF challenges, practice on platforms like TryHackMe and Hack The Box</div>
+          <div class="rm-desc">Compete in CTF challenges, practice on TryHackMe and Hack The Box, build practical skills</div>
         </div>
       </div>
       <div class="roadmap-item">
@@ -705,15 +831,15 @@
   <h2>Get in Touch</h2>
   <div class="contact-inner">
     <p>
-      I'm always open to connecting with professionals, mentors, and opportunities in the cybersecurity space. Whether you have advice, collaboration ideas, or just want to talk tech — I'd love to hear from you.
+      I'm always open to connecting with professionals, mentors, and opportunities in the cybersecurity space. Whether you have advice, collaboration ideas, or just want to discuss emerging security topics — I'd love to hear from you.
     </p>
     <div class="contact-links">
-      <a href="mailto:your.email@example.com" class="contact-link">
+      <a href="mailto:adibkazimohammad@gmail.com" class="contact-link">
         <span class="cl-icon">✉️</span>
         <span class="cl-label">Email</span>
         <span class="cl-val">adibkazimohammad@gmail.com</span>
       </a>
-      <a href="https://github.com/yourusername" class="contact-link">
+      <a href="https://github.com/Adibreal" class="contact-link">
         <span class="cl-icon">💾</span>
         <span class="cl-label">GitHub</span>
         <span class="cl-val">https://github.com/Adibreal</span>
@@ -724,7 +850,7 @@
 
 <!-- ── FOOTER ──────────────────────────────────────────── -->
 <footer>
-  <p>© 2026 <span class="footer-accent">MD. Rakib</span> — Cybersecurity Student, Bangladesh</p>
+  <p>© 2026 <span class="footer-accent">Kazi Md. Adib</span> — Cybersecurity Student, Bangladesh</p>
   <p style="font-size:0.75rem; color: var(--muted);">Built with focus & intention.</p>
 </footer>
 
